@@ -69,7 +69,7 @@ const Address = () => {
       <Spacer y={9.6} />
       <div className="aboutContent">
         <div className="aboutCaption">ABOUT</div>
-        <Spacer yMobile={2.4} />
+        {/* <Spacer yMobile={2.4} /> */}
         <div className="aboutDetails textSmall">
           <p>
             At 3pleOz, we offer seasonal camps, which include summer and winter
@@ -82,8 +82,7 @@ const Address = () => {
             elite coaches to serve the needs of their teams and clients,
             respectively
           </p>
-          <Spacer yMobile={2.4} />
-          {/* <Spacer y={30.2} /> */}
+          <Spacer y={30.2} yMobile={2.4} />
         </div>
         <div>
           <div className="cost">LOCATION</div>

@@ -87,11 +87,21 @@ const NavBar = () => {
         />
         <div className="border">
           <ul className="lists">
-            <li className="active">Home</li>
-            <li className="list">Manifesto</li>
-            <li className="list">Coaching Plans</li>
-            <li className="list">Testimonials</li>
-            <li className="list">Contact Us</li>
+            <Link to="/">
+              <li className="active">Home</li>
+            </Link>
+            <a href="#aim">
+              <li className="list">Manifesto</li>
+            </a>
+            <a href="#plan">
+              <li className="list">Coaching Plans</li>
+            </a>
+            <a href="#customers">
+              <li className="list">Testimonials</li>
+            </a>
+            <a href="#address">
+              <li className="list">Contact Us</li>
+            </a>
           </ul>
         </div>
       </div>

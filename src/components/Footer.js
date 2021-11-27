@@ -2,10 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import Spacer from "./Spacer";
 import logo from "./images/logo.svg";
+import fly from "./images/fly.jpg";
 import facebook from "./images/facebook.svg";
 import instagram from "./images/instagram.svg";
 import twitter from "./images/twitter.svg";
 import youTube from "./images/youTube.svg";
+import { Link } from "react-router-dom";
 
 const Wrapper = styled.div`
   background-color: #151e11;
@@ -49,15 +51,24 @@ const Wrapper = styled.div`
   }
 
   .mail {
-    opacity: 0.2;
-    color: #d9dbe1;
+    background-color: #454b41;
     padding: 1.5rem;
     border-radius: 2rem;
     width: 25.5rem;
+    outline: 0;
   }
 
   .footergridSmall {
     display: none;
+  }
+
+  .fly {
+    position: absolute;
+    top: 20rem;
+  }
+
+  input {
+    position: relative;
   }
 
   @media screen and (max-width: 768px) {
@@ -78,9 +89,9 @@ const Wrapper = styled.div`
   }
 `;
 
-const Address = () => {
+const footer = () => {
   return (
-    <Wrapper className="footerWrapper container ">
+    <Wrapper className="footerWrapper container" id="footer">
       <Spacer y={9.6} />
       <div className="footergrid colorWhite">
         <div>
@@ -95,20 +106,38 @@ const Address = () => {
             <Spacer y={4} />
           </div>
           <div className="handles flexRow">
-            <img src={instagram} alt="instagram" className="instagram" />
-            <img src={facebook} alt="facebook" className="facebook" />
-            <img src={twitter} alt="twitter" className="twitter" />
-            <img src={youTube} alt="you-tube" className="you-tube" />
+            <a href="#">
+              <img src={instagram} alt="instagram" className="instagram" />
+            </a>
+            <a href="#">
+              <img src={facebook} alt="facebook" className="facebook" />
+            </a>
+            <a href="#">
+              <img src={twitter} alt="twitter" className="twitter" />
+            </a>
+            <a href="#">
+              <img src={youTube} alt="you-tube" className="you-tube" />
+            </a>
           </div>
           <Spacer y={8} />
         </div>
         <div className="border">
           <ul className="lists">
-            <li className="active">Home</li>
-            <li className="list">Manifesto</li>
-            <li className="list">Coaching Plans</li>
-            <li className="list">Testimonials</li>
-            <li className="list">Contact Us</li>
+            <Link to="/">
+              <li className="active">Home</li>
+            </Link>
+            <a href="#aim">
+              <li className="list">Manifesto</li>
+            </a>
+            <a href="#plan">
+              <li className="list">Coaching Plans</li>
+            </a>
+            <a href="#customers">
+              <li className="list">Testimonials</li>
+            </a>
+            <a href="#address">
+              <li className="list">Contact Us</li>
+            </a>
           </ul>
           <Spacer y={9.6} />
         </div>
@@ -132,6 +161,7 @@ const Address = () => {
             Stay in the know by joining our mailing list.
           </h1>
           <Spacer y={2.4} />
+          <img src={fly} alt="logo" className="fly" />
           <input
             className="mail"
             type="text"
@@ -144,11 +174,21 @@ const Address = () => {
           <Spacer y={2.4} />
           <div className="border">
             <ul className="lists">
-              <li className="active">Home</li>
-              <li className="list">Manifesto</li>
-              <li className="list">Coaching Plans</li>
-              <li className="list">Testimonials</li>
-              <li className="list">Contact Us</li>
+              <Link to="/">
+                <li className="active">Home</li>
+              </Link>
+              <a href="#aim">
+                <li className="list">Manifesto</li>
+              </a>
+              <a href="#plan">
+                <li className="list">Coaching Plans</li>
+              </a>
+              <a href="#customers">
+                <li className="list">Testimonials</li>
+              </a>
+              <a href="#address">
+                <li className="list">Contact Us</li>
+              </a>
             </ul>
             <Spacer y={4.8} />
           </div>
@@ -171,4 +211,4 @@ const Address = () => {
   );
 };
 
-export default Address;
+export default footer;

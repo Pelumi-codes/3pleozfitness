@@ -47,9 +47,9 @@ const Wrapper = styled.div`
   }
 `;
 
-const Header = () => {
+const Aim = () => {
   return (
-    <Wrapper className="aimWrapper  section">
+    <Wrapper className="aimWrapper  section" id="aim">
       {/* <img src={bgFeedback} alt="Cover" className="coverImage" /> */}
       <div className="aim-image">
         <div className="aimContent">
@@ -77,4 +77,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Aim;

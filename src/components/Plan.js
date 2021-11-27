@@ -127,7 +127,7 @@ const Wrapper = styled.div`
 
 const Plan = () => {
   return (
-    <Wrapper className="aimWrapper container">
+    <Wrapper className="aimWrapper container" id="plan">
       <Spacer y={14.4} />
       {/* <img src={bgFeedback} alt="Cover" className="coverImage" /> */}
       <h1 className="colorWhite displayMediumBold">

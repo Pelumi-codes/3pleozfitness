@@ -2,7 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import Spacer from "./Spacer";
 import quote from "./images/quote.svg";
-import arrows from "./images/arrows.svg";
+import arrow1 from "./images/arrow1.svg";
+import arrow2 from "./images/arrow2.svg";
 
 const Wrapper = styled.div`
   .feedbackCaption {
@@ -52,6 +53,10 @@ const Wrapper = styled.div`
     float: right;
   }
 
+  .arrow1 {
+    margin-right: 3rem;
+  }
+
   .large {
     background-color: #faf6f3;
     padding: 3.2rem 16.5rem 3.2rem 0;
@@ -91,7 +96,7 @@ const Wrapper = styled.div`
 
 const Customers = () => {
   return (
-    <Wrapper className="aimWrapper">
+    <Wrapper className="aimWrapper" id="customers">
       <div className="feedback">
         <div className="feedbackCaption">
           <div>
@@ -127,10 +132,18 @@ const Customers = () => {
                 volutpat. Nulla aliquet porttitor venenatis. Donec a dui et dui
                 fringilla consectetur id nec massa. Aliquam erat volutpat. Sed
                 ut dui ut lacus dictum fermentum vel tincidunt neque.
+                <Spacer y={9.3} />
+                <div className="arrows flexRow">
+                  <botton>
+                    <img src={arrow1} alt="arrows" className="arrow1" />
+                  </botton>
+                  <button>
+                    <img src={arrow2} alt="arrows" className="arrow" />
+                  </button>
+                </div>
+                <Spacer y={10} />
               </p>
-              <Spacer y={9.3} />
             </div>
-            <img src={arrows} alt="arrows" className="arrows" />
           </div>
         </div>
       </div>
