@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Spacer from "./Spacer";
 import logo from "./images/logo.svg";
 import { Link } from "react-router-dom";
-import hamburger from "./images/hamburger.jpeg";
+import hamburger from "./images/menu.png";
 
 const Wrapper = styled.div`
   background-color: #155509;
@@ -69,8 +69,6 @@ const Wrapper = styled.div`
 const NavBar = () => {
   return (
     <Wrapper className="NavBarWrapper container">
-      {/* <img src={bgFeedback} alt="Cover" className="coverImage" /> */}
-
       <div className="flexRow">
         <div>
           <Spacer y={4.8} />
@@ -88,18 +86,18 @@ const NavBar = () => {
         <div className="border">
           <ul className="lists">
             <Link to="/">
-              <li className="active">Home</li>
+              <li className="list">Home</li>
             </Link>
-            <a href="#aim">
+            <a href="/#manifesto">
               <li className="list">Manifesto</li>
             </a>
-            <a href="#plan">
+            <a href="/#coachingPlans">
               <li className="list">Coaching Plans</li>
             </a>
-            <a href="#customers">
+            <a href="/#testimonials">
               <li className="list">Testimonials</li>
             </a>
-            <a href="#address">
+            <a href="/#contactUs">
               <li className="list">Contact Us</li>
             </a>
           </ul>

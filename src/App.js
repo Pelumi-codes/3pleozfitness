@@ -9,19 +9,19 @@ import {
   Switch,
   Redirect,
 } from "react-router-dom";
-// import Aim from "./components/Aim";
 import Plan from "./components/Plan";
+import ScrollToTop from "./components/ScrollToTop";
+
 function App() {
   return (
     <Router>
       <div>
+        <ScrollToTop />
         <Switch>
           <Route exact path="/" component={Landing} />
           <Route path="/One-on-One" component={One_on_One} />
           <Route path="/About-Us" component={About_Us} />
           <Route path="/Camps-And-Picnic" component={Camps_And_Picnic} />
-          <Redirect exact from="/" to="/aim" />
-          {/* <Route path="/aim" component={Aim} /> */}
           <Route path="/plan" component={Plan} />
         </Switch>
       </div>

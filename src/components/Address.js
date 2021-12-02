@@ -44,7 +44,7 @@ const Wrapper = styled.div`
 
 const Address = () => {
   return (
-    <Wrapper className="addressWrapper container" id="address">
+    <Wrapper className="addressWrapper container" id="contactUs">
       <p>
         Our training sessions are designed to help every trainee learn the
         rudiments of the game, build their endurance and agility as well as

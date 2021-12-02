@@ -96,7 +96,7 @@ const Wrapper = styled.div`
 
 const Customers = () => {
   return (
-    <Wrapper className="aimWrapper" id="customers">
+    <Wrapper className="aimWrapper" id="testimonials">
       <div className="feedback">
         <div className="feedbackCaption">
           <div>
@@ -125,24 +125,27 @@ const Customers = () => {
             </div>
             <Spacer y={2.6} />
             <div>
-              <p className="textSmall feedbackContent">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-                hendrerit nisi sed sollicitudin pellentesque. Nunc posuere purus
-                rhoncus pulvinar aliquam. Ut aliquet tristique nisl vitae
-                volutpat. Nulla aliquet porttitor venenatis. Donec a dui et dui
-                fringilla consectetur id nec massa. Aliquam erat volutpat. Sed
-                ut dui ut lacus dictum fermentum vel tincidunt neque.
+              <div>
+                <span className="textSmall feedbackContent">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+                  hendrerit nisi sed sollicitudin pellentesque. Nunc posuere
+                  purus rhoncus pulvinar aliquam. Ut aliquet tristique nisl
+                  vitae volutpat. Nulla aliquet porttitor venenatis. Donec a dui
+                  et dui fringilla consectetur id nec massa. Aliquam erat
+                  volutpat. Sed ut dui ut lacus dictum fermentum vel tincidunt
+                  neque.
+                </span>
                 <Spacer y={9.3} />
                 <div className="arrows flexRow">
-                  <botton>
+                  <button>
                     <img src={arrow1} alt="arrows" className="arrow1" />
-                  </botton>
+                  </button>
                   <button>
                     <img src={arrow2} alt="arrows" className="arrow" />
                   </button>
                 </div>
                 <Spacer y={10} />
-              </p>
+              </div>
             </div>
           </div>
         </div>

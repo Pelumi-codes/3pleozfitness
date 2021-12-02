@@ -49,7 +49,7 @@ const Wrapper = styled.div`
 
 const Aim = () => {
   return (
-    <Wrapper className="aimWrapper  section" id="aim">
+    <Wrapper className="aimWrapper  section" id="manifesto">
       {/* <img src={bgFeedback} alt="Cover" className="coverImage" /> */}
       <div className="aim-image">
         <div className="aimContent">

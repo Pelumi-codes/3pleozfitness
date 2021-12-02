@@ -9,6 +9,7 @@ import ballPitch from "./images/ballPitch.svg";
 
 const Wrapper = styled.div`
   background-color: #181813;
+  overflow: hidden;
 
   .aim-image {
     display: grid;
@@ -127,7 +128,7 @@ const Wrapper = styled.div`
 
 const Plan = () => {
   return (
-    <Wrapper className="aimWrapper container" id="plan">
+    <Wrapper className="aimWrapper container" id="coachingPlans">
       <Spacer y={14.4} />
       {/* <img src={bgFeedback} alt="Cover" className="coverImage" /> */}
       <h1 className="colorWhite displayMediumBold">

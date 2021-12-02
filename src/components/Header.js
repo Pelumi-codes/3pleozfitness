@@ -4,35 +4,31 @@ import Spacer from "./Spacer";
 import logo from "./images/logo.svg";
 import Button from "./Button";
 import { Link } from "react-router-dom";
-import hamburger from "./images/hamburger.jpeg";
+import hamburger from "./images/menu.png";
+import closeIcon from "./images/close.svg";
+import headerImg from "./images/header.jpeg";
+import { scrollTo } from "../utils.";
+import { useState } from "react";
 
 const Wrapper = styled.div`
-  background-color: #155509;
+  position: relative;
+  background: transparent;
+  width: 100vw;
+  overflow: hidden;
 
-  .active {
-    color: #155509;
+  .coverImg {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    min-height: 100%;
+    min-width: 100%;
+    z-index: -1;
+    filter: brightness(0.5);
   }
 
-  .list {
-    color: #8d9091;
-  }
-
-  .border {
-    background-color: white;
-    border-radius: 40px;
-    margin-top: 2.4rem;
-  }
-
-  .logo {
-    margin-right: 42rem;
-  }
-
-  .lists {
-    padding: 2.4rem 4.8rem;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 4.8rem;
-    white-space: nowrap;
+  .navWrapper {
+    height: 12rem;
   }
 
   .caption {
@@ -47,39 +43,11 @@ const Wrapper = styled.div`
     float: right;
   }
 
-  .toggle {
-    display: none;
-  }
-
   @media screen and (max-width: 768px) {
     height: auto;
-    .border {
-      display: none;
-      // background-color: transparent;
-      // border-radius: none;
-      // margin-top: 2.4rem;
-    }
 
-    .toggle {
-      color: white;
-      display: block;
-      float: right;
-      margin-top: 2.4rem;
-      position: absolute;
-      right: 3rem;
-    }
-
-    .lists {
-      display: none;
-      // padding: 2.4rem 4.8rem;
-      // grid-template-columns: 1fr;
-      // grid-gap: 4.8rem;
-    }
     .caption {
       text-align: center;
-    }
-    .logo {
-      margin-right: 0;
     }
 
     .miniCaption {
@@ -95,51 +63,144 @@ const Wrapper = styled.div`
   }
 `;
 
-const Header = () => {
-  return (
-    <Wrapper className="headerWrapper container section">
-      {/* <img src={bgFeedback} alt="Cover" className="coverImage" /> */}
+const Menu = styled.ul`
+  padding: 2.4rem 4.8rem;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 4.8rem;
+  white-space: nowrap;
+  background-color: white;
+  border-radius: 40px;
 
-      <div className="flexRow">
+  .listItem {
+    color: #8d9091;
+    cursor: pointer;
+
+    &.active {
+      color: #155509;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    border-radius: unset;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    background-color: #151e11;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.2s ease-out;
+
+    &.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .listItem {
+      height: max-content;
+      color: #ffffff;
+      font-size: 18px;
+      line-height: 28px;
+    }
+
+    .menuHeader {
+      height: 12rem;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 0 2.4rem;
+    }
+  }
+`;
+
+const Hamburger = styled.button`
+  height: 4.8rem;
+  width: 4.8rem;
+  background-color: #ffffff;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  display: none;
+
+  &.open {
+    background-color: #bfffb320;
+  }
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+  }
+`;
+
+const Header = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  return (
+    <Wrapper className="headerWrapper container section" id="header">
+      <img src={headerImg} alt="Cover" className="coverImg" />
+
+      <div className="flexRow justifySpaceBetween alignCenter navWrapper">
         <div>
-          <Spacer y={4.8} />
           <Link to="/">
             <img src={logo} alt="logo" className="logo" />
           </Link>
         </div>
-        <img
-          src={hamburger}
-          alt="hamburger"
-          className="toggle"
-          width="40rem"
-          height="35rem"
-          position="absolute"
-        />
-        <div className="border">
-          <ul className="lists">
-            <Link to="/">
-              <li className="active">Home</li>
-            </Link>
-            <a href="#aim">
-              <li className="list">Manifesto</li>
-            </a>
-            <a href="#plan">
-              <li className="list">Coaching Plans</li>
-            </a>
-            <a href="#customers">
-              <li className="list">Testimonials</li>
-            </a>
-            <a href="#address">
-              <li className="list">Contact Us</li>
-            </a>
-          </ul>
-        </div>
+
+        <Hamburger onClick={() => setMenuOpen(!menuOpen)}>
+          {!menuOpen && <img src={hamburger} alt="menu" className="menuIcon" />}
+          {menuOpen && <img src={closeIcon} alt="menu" className="closeIcon" />}
+        </Hamburger>
+
+        <Menu className={`${menuOpen ? "open" : "closed"}`}>
+          <div className="menuHeader flexRow justifySpaceBetween alignCenter">
+            <div>
+              <Link to="/">
+                <img src={logo} alt="logo" className="logo" />
+              </Link>
+            </div>
+
+            <Hamburger
+              className={`${menuOpen ? "open" : "closed"}`}
+              onClick={() => setMenuOpen(!menuOpen)}
+            >
+              {!menuOpen && (
+                <img src={hamburger} alt="menu" className="menuIcon" />
+              )}
+              {menuOpen && (
+                <img src={closeIcon} alt="menu" className="closeIcon" />
+              )}
+            </Hamburger>
+          </div>
+          <a href="/">
+            <li className="listItem">Home</li>
+          </a>
+          <a href="/#manifesto" onClick={() => setMenuOpen(false)}>
+            <li className="listItem">Manifesto</li>
+          </a>
+          <a href="/#coachingPlans" onClick={() => setMenuOpen(false)}>
+            <li className="listItem">Coaching Plans</li>
+          </a>
+          <a href="/#testimonials" onClick={() => setMenuOpen(false)}>
+            <li className="listItem">Testimonials</li>
+          </a>
+          <a href="/#contactUs" onClick={() => setMenuOpen(false)}>
+            <li className="listItem">Contact Us</li>
+          </a>
+        </Menu>
       </div>
       <Spacer y={10.8} yMobile={13.2} />
       <div>
         <h1 className="displayLargeBold colorWhite caption">
           3PLEOZ SKILLZ ACADEMY
         </h1>
+        <Spacer y={1} />
         <h3 className="displayMediumText colorWhite miniCaption">
           training for Boys and Girls of all ages and skill levels.
         </h3>
@@ -148,6 +209,7 @@ const Header = () => {
       <Button
         text="See all coaching plans"
         className="btnHeader"
+        onClick={() => scrollTo("coachingPlans")}
         normal
         maxWidth
       />
