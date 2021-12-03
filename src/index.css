@@ -112,6 +112,10 @@ ul {
   list-style: none;
 }
 
+img {
+  flex-shrink: 0;
+}
+
 ::selection {
   background: #0000fe; /* WebKit/Blink Browsers */
   color: #ffffff;

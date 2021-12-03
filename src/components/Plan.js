@@ -1,127 +1,64 @@
 import React from "react";
 import styled from "styled-components";
 import Spacer from "./Spacer";
-import circleOne from "./images/circleOne.svg";
-import football from "./images/football.svg";
+import circleSnap_one from "./images/circleSnap_one.png";
+import circleSnap_two from "./images/circleSnap_two.png";
+import circleSnap_three from "./images/circleSnap_three.png";
 import Button from "./Button";
 import { Link } from "react-router-dom";
-import ballPitch from "./images/ballPitch.svg";
 
 const Wrapper = styled.div`
   background-color: #181813;
   overflow: hidden;
 
-  .aim-image {
+  .contentWrapper {
     display: grid;
-    grid-template-columns: 1fr 2fr;
-  }
-
-  .aimContent {
-    margin-left: 9.6rem;
-  }
-
-  .caption {
-    width: 50%;
-  }
-
-  .players {
-    margin-right: 4.8rem;
-  }
-
-  .aim-image {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-  }
-
-  .content {
-    width: 40%;
-    text-align: justify;
-  }
-
-  .setionTwo {
-    margin-left: 43.9rem;
-  }
-
-  .playerTwo {
-    margin-left: 4.8rem;
-  }
-
-  .aim-image-two {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .contentTwo {
-    width: 100%;
-    text-align: justify;
-  }
-
-  .captionTwo {
-    white-space: nowrap;
-  }
-
-  img {
-    width: 300px;
-    height: 300px;
-  }
-
-  .contentThree {
-    width: 36%;
-    text-align: justify;
-  }
-
-  .aimImageSmall {
-    display: none;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 6rem;
   }
 
   @media screen and (max-width: 768px) {
     height: auto;
 
-    .aim-image {
-      grid-template-columns: 1fr;
+    .contentWrapper {
+      grid-template-columns: unset;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+`;
+
+const CoachingPlan = styled.div`
+  grid-column: 1/3;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 4.8rem;
+
+  &.right {
+    grid-column: 2/4;
+  }
+
+  .imgWrapper {
+    width: 100%;
+  }
+
+  .circleImg {
+    width: 100%;
+    aspect-ratio: 1/1;
+  }
+
+  @media screen and (max-width: 768px) {
+    grid-column: unset;
+    grid-template-columns: unset;
+    display: flex;
+    flex-direction: column;
+
+    &.right {
+      flex-direction: column-reverse;
     }
 
-    .caption {
-      width: 45%;
-      text-align: center;
-    }
-
-    .aimContent {
-      //   margin-left: 2.4rem;
-      margin: 0 auto;
-    }
-
-    .aim-image-two {
-      display: none;
-    }
-
-    .aimImageSmall {
-      display: block;
-    }
-
-    .aim-image-two {
-      grid-template-columns: 1fr;
-    }
-
-    .players,
-    .playerTwo {
-      margin-left: 0;
-    }
-
-    .content,
-    .contentThree {
-      width: 80%;
-      text-align: justify;
-    }
-
-    .setionTwo {
-      margin-left: 43.9rem;
-    }
-
-    .captionActive {
-      br {
-        display: none;
-      }
+    .circleImg {
+      width: 20rem;
     }
   }
 `;
@@ -129,122 +66,78 @@ const Wrapper = styled.div`
 const Plan = () => {
   return (
     <Wrapper className="aimWrapper container" id="coachingPlans">
-      <Spacer y={14.4} />
-      {/* <img src={bgFeedback} alt="Cover" className="coverImage" /> */}
+      <Spacer y={14.4} yMobile={7.2} />
       <h1 className="colorWhite displayMediumBold">
         Soccer <br /> Coaching Plans
       </h1>
-      <Spacer y={6.2} />
-      <div className="aim-image">
-        <div className="aimContent">
-          <img src={circleOne} alt="players on the pitch" className="players" />
-        </div>
-        <div className="flexColumn  colorWhite">
-          <Spacer yMobile={2.4} />
-          <div className="textBold captionActive">
-            One-on-one <br /> coaching
+      <Spacer y={6} />
+      <div className="contentWrapper">
+        <CoachingPlan>
+          <div className="imgWrapper">
+            <img
+              src={circleSnap_one}
+              alt="players on the pitch"
+              className="circleImg"
+            />
           </div>
-          <Spacer y={0.2} />
-          <div>
-            <p className="textMedium content">
-              With our private coaching, players have our coaches’ 100%
-              attention through the session; consequently, we are able to work
-              collaboratively to achieve our players’ goals.
-            </p>
-            <Spacer y={4.8} />
-            <div>
-              <Link to="/One-on-One" className="learnMore">
-                <Button fullWidth normal text="Learn More" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-      <Spacer y={8.5} yMobile={4.8} />
-
-      <div className="aim-image-two">
-        <div className="flexColumn  colorWhite setionTwo">
-          <div className="textBold captionTwo">
-            Midweek Skills <br /> Class
-          </div>
-          <Spacer y={0.2} />
-          <div>
-            <p className="textMedium contentTwo">
-              For those who prefer a group setting, the midweek class is the
-              perfect plan for you. Twice a week, in three different locations
-              across the DFW area.
+          <div className="flexColumn colorWhite">
+            <h3 className="textBold">One-on-one coaching</h3>
+            <Spacer y={1} />
+            <p className="textMedium">
+              Experience detailed coaching that leverages individualized
+              evaluation and teaching to deliver effective coaching sessions.
             </p>
             <Spacer y={4.8} yMobile={2.4} />
-            <div>
-              <Link to="/About-Us" className="learnMore">
-                <Button fullWidth normal text="Learn More" />
-              </Link>
-            </div>
+            <Link to="/one-on-one" className="learnMore">
+              <Button fullWidth normal text="Learn More" />
+            </Link>
           </div>
-        </div>
-        <div className="aimContent">
-          <img
-            src={football}
-            alt="players on the pitch"
-            className="playerTwo"
-          />
-        </div>
-      </div>
-      <Spacer y={9} yMobile={4.8} />
-
-      <div className="aimImageSmall">
-        <div className="aimContent">
-          <img src={circleOne} alt="players on the pitch" className="players" />
-        </div>
-        <Spacer yMobile={2.4} />
-        <div className="flexColumn  colorWhite">
-          <div className="textBold captionActive">
-            Midweek Skills <br /> Class
-          </div>
-          <Spacer y={0.2} />
-          <div>
-            <p className="textMedium contentThree">
-              For those who prefer a group setting, the midweek class is the
-              perfect plan for you. Twice a week, in three different locations
-              across the DFW area.
+        </CoachingPlan>
+        <CoachingPlan className="right">
+          <div className="flexColumn colorWhite">
+            <h3 className="textBold">Midweek skills class</h3>
+            <Spacer y={1} />
+            <p className="textMedium">
+              Reinforce your skills with group-based coaching which offers an
+              opportunity for collaboration, communication and feedback.
             </p>
-            <Spacer y={4.8} />
-            <div>
-              <Link to="/Camps-And-Picnic" className="learnMore">
-                <Button fullWidth normal text="Learn More" />
-              </Link>
-            </div>
-            <Spacer yMobile={4.8} />
+            <Spacer y={4.8} yMobile={2.4} />
+            <Link to="/midweek-skills" className="learnMore">
+              <Button fullWidth normal text="Learn More" />
+            </Link>
           </div>
-        </div>
-      </div>
-
-      <div className="aim-image">
-        <div className="aimContent">
-          <img src={ballPitch} alt="players on the pitch" className="players" />
-        </div>
-        {/* <Spacer yMobile={2.4} /> */}
-        <div className="flexColumn  colorWhite">
-          <div className="textBold captionActive">
-            Camps and <br />
-            Clinics
+          <div className="imgWrapper">
+            <img
+              src={circleSnap_two}
+              alt="players on the pitch"
+              className="circleImg"
+            />
           </div>
-          <Spacer y={0.2} />
-          <div>
-            <p className="textMedium contentThree">
-              At 3pleOz, we offer seasonal camps, which include summer and
-              winter 3-day , intensive camps, weekend clinics, etc.
+        </CoachingPlan>
+        <CoachingPlan>
+          <div className="imgWrapper">
+            <img
+              src={circleSnap_three}
+              alt="players on the pitch"
+              className="circleImg"
+            />
+          </div>
+          <div className="flexColumn colorWhite">
+            <h3 className="textBold">Camps and clinics</h3>
+            <Spacer y={1} />
+            <p className="textMedium">
+              Explore our customized, intensive coaching sessions specially
+              designed to serve larger groups and create an enabling atmosphere
+              for communal learning within a targeted timespan
             </p>
-            <Spacer y={4.8} />
-            <div>
-              <Link to="/Camps-And-Picnic" className="learnMore">
-                <Button fullWidth normal text="Learn More" />
-              </Link>
-            </div>
+            <Spacer y={4.8} yMobile={2.4} />
+            <Link to="/camps-and-clinics" className="learnMore">
+              <Button fullWidth normal text="Learn More" />
+            </Link>
           </div>
-        </div>
+        </CoachingPlan>
       </div>
-      <Spacer y={9.5} yMobile={4.8} />
+      <Spacer y={9.6} yMobile={4.8} />
     </Wrapper>
   );
 };

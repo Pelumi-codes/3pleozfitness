@@ -1,78 +1,118 @@
 import React from "react";
 import styled from "styled-components";
 import Spacer from "./Spacer";
-import ballRaising from "./images/ballRaising.svg";
+import baller_one from "./images/baller_one.png";
+import baller_two from "./images/baller_two.png";
+import baller_three from "./images/baller_three.png";
+import baller_four from "./images/baller_four.png";
+import swerveBall from "./images/ball_two.png";
+import { useEffect, useMemo, useState } from "react";
 
 const Wrapper = styled.div`
-  background-color: #ffffff;
+  background-color: transparent;
+  position: relative;
+  margin-bottom: -3px;
+  overflow: hidden;
 
-  .aim-image {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #faf6f3;
+    clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+    z-index: -1;
+  }
+
+  .swerveBall {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0.05;
   }
 
   .aimContent {
     margin-left: 9.6rem;
+    position: relative;
+    z-index: 2;
+    max-width: 46.8rem;
   }
 
-  .caption {
+  .sideImage {
     width: 50%;
-    text-align: justify;
-  }
+    position: relative;
+    z-index: 2;
 
-  .equip {
-    width: 60%;
+    img {
+      width: 100%;
+    }
   }
 
   @media screen and (max-width: 768px) {
     height: auto;
 
-    .aim-image {
-      grid-template-columns: 1fr;
+    .contentWrapper {
+      flex-direction: column;
     }
 
-    .equip {
-      width: 45%;
-      text-align: center;
-    }
-
-    .caption {
-      width: 45%;
-      text-align: center;
+    .sideImage {
+      width: 100%;
     }
 
     .aimContent {
-      margin-left: 2.4rem;
+      margin: 7.2rem 0;
+      padding: 0 2.4rem;
+      max-width: unset;
+      width: 100%;
+    }
+
+    .swerveBall {
+      height: 20.9rem;
     }
   }
 `;
 
+const ballers = [baller_one, baller_two, baller_three, baller_four];
+
 const Aim = () => {
+  const [baller, setBaller] = useState(0);
+
+  const switchBaller = () => {
+    if (baller >= 3) {
+      setBaller(0);
+    } else {
+      setBaller((prev) => prev + 1);
+    }
+  };
+
+  useEffect(() => {
+    const interval = setInterval(switchBaller, 2000);
+
+    return () => clearInterval(interval);
+  }, [baller]);
+
   return (
-    <Wrapper className="aimWrapper  section" id="manifesto">
-      {/* <img src={bgFeedback} alt="Cover" className="coverImage" /> */}
-      <div className="aim-image">
+    <Wrapper className="aimWrapper" id="manifesto">
+      <img src={swerveBall} alt="Swerve ball" className="swerveBall" />
+      <div className="flexRow alignCenter justifySpaceBetween contentWrapper">
         <div className="aimContent">
-          <Spacer y={26.5} yMobile={7.2} />
-          <h1 className="displayLarge equip">
+          <h1 className="displayLarge">
             Equipping future generations for soccer excellence.
           </h1>
           <br />
-          <h3 className="textMedium caption">
+          <h3 className="textMedium">
             We deploy every secret we know to help our trainees grasp the skills
             and techniques they need to get adept at the game of football.
           </h3>
-          <Spacer y={26.5} yMobile={9.9} />
+          {/* <Spacer y={26.5} yMobile={9.9} /> */}
         </div>
-        <div>
-          <img
-            src={ballRaising}
-            alt="A player raising ball"
-            className="player"
-          />
+        <div className="sideImage">
+          <img src={ballers[baller]} alt="Baller" />
         </div>
       </div>
-      <Spacer y={4.8} />
     </Wrapper>
   );
 };

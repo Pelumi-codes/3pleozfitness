@@ -66,7 +66,7 @@ const Wrapper = styled.div`
 const Menu = styled.ul`
   padding: 2.4rem 4.8rem;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, auto);
   grid-gap: 4.8rem;
   white-space: nowrap;
   background-color: white;
@@ -79,6 +79,10 @@ const Menu = styled.ul`
     &.active {
       color: #155509;
     }
+  }
+
+  .menuHeader {
+    display: none;
   }
 
   @media screen and (max-width: 768px) {
@@ -112,6 +116,7 @@ const Menu = styled.ul`
     }
 
     .menuHeader {
+      display: flex;
       height: 12rem;
       position: absolute;
       top: 0;
