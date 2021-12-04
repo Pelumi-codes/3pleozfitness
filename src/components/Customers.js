@@ -4,11 +4,12 @@ import Spacer from "./Spacer";
 import quote from "./images/quote.svg";
 import arrow1 from "./images/arrow1.svg";
 import arrow2 from "./images/arrow2.svg";
+import { useState } from "react";
 
 const Wrapper = styled.div`
   .feedbackCaption {
     background-color: #bfffb3;
-    padding: 24.6rem 9.5rem 25.8rem 16.5rem;
+    padding: 24.6rem 9.5rem 25.8rem 9.6rem;
   }
 
   .feedback {
@@ -76,11 +77,6 @@ const Wrapper = styled.div`
 
     .happyFeedback {
       width: 100%;
-      text-align: center;
-    }
-
-    .happy {
-      text-align: center;
     }
 
     .customer {
@@ -94,7 +90,46 @@ const Wrapper = styled.div`
   }
 `;
 
+const testimonies = [
+  {
+    name: "Jenny Wilson",
+    title: "Parent",
+    message:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam hendrerit nisi sed sollicitudin pellentesque. Nunc posuere purus rhoncus pulvinar aliquam. Ut aliquet tristique nisl vitae volutpat. Nulla aliquet porttitor venenatis. Donec a dui et dui fringilla consectetur id nec massa. Aliquam erat volutpat. Sed ut dui ut lacus dictum fermentum vel tincidunt neque.",
+  },
+  {
+    name: "Wade Wilson",
+    title: "Parent",
+    message:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam hendrerit nisi sed sollicitudin pellentesque. Nunc posuere purus rhoncus pulvinar aliquam. Ut aliquet tristique nisl vitae volutpat. Nulla aliquet porttitor venenatis. Donec a dui et dui fringilla consectetur id nec massa. Aliquam erat volutpat. Sed ut dui ut lacus dictum fermentum vel tincidunt neque.",
+  },
+  {
+    name: "Tyler Wilson",
+    title: "Parent",
+    message:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam hendrerit nisi sed sollicitudin pellentesque. Nunc posuere purus rhoncus pulvinar aliquam. Ut aliquet tristique nisl vitae volutpat. Nulla aliquet porttitor venenatis. Donec a dui et dui fringilla consectetur id nec massa. Aliquam erat volutpat. Sed ut dui ut lacus dictum fermentum vel tincidunt neque.",
+  },
+];
+
 const Customers = () => {
+  const [testimonyIndex, setTestimonyIndex] = useState(0);
+
+  const next = () => {
+    if (testimonyIndex > 1) {
+      return;
+    } else {
+      setTestimonyIndex((prev) => prev + 1);
+    }
+  };
+
+  const prev = () => {
+    if (testimonyIndex == 0) {
+      return;
+    } else {
+      setTestimonyIndex((prev) => prev - 1);
+    }
+  };
+
   return (
     <Wrapper className="aimWrapper" id="testimonials">
       <div className="feedback">
@@ -102,6 +137,7 @@ const Customers = () => {
           <div>
             <h1 className="displayLarge happy">Happy customers</h1>
           </div>
+          <Spacer y={0.8} />
           <div>
             <h3 className="textSmall happyFeedback">
               Feedback from these happy customers helps us in reaching the
@@ -117,30 +153,26 @@ const Customers = () => {
 
             <div>
               <Spacer y={13.2} />
-              <h1 className="customerName">Jenny Wilson</h1>
+              <h1 className="customerName">
+                {testimonies[testimonyIndex]?.name}
+              </h1>
             </div>
             <Spacer y={0.2} />
             <div>
-              <h4 className="title">Parent</h4>
+              <h4 className="title">{testimonies[testimonyIndex]?.title}</h4>
             </div>
             <Spacer y={2.6} />
             <div>
               <div>
                 <span className="textSmall feedbackContent">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-                  hendrerit nisi sed sollicitudin pellentesque. Nunc posuere
-                  purus rhoncus pulvinar aliquam. Ut aliquet tristique nisl
-                  vitae volutpat. Nulla aliquet porttitor venenatis. Donec a dui
-                  et dui fringilla consectetur id nec massa. Aliquam erat
-                  volutpat. Sed ut dui ut lacus dictum fermentum vel tincidunt
-                  neque.
+                  {testimonies[testimonyIndex]?.message}
                 </span>
                 <Spacer y={9.3} />
                 <div className="arrows flexRow">
-                  <button>
+                  <button type="button" onClick={prev}>
                     <img src={arrow1} alt="arrows" className="arrow1" />
                   </button>
-                  <button>
+                  <button type="button" onClick={next}>
                     <img src={arrow2} alt="arrows" className="arrow" />
                   </button>
                 </div>

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Spacer from "./Spacer";
 import logo from "./images/logo.svg";
-import fly from "./images/fly.jpg";
+import send from "./images/send.png";
 import facebook from "./images/facebook.svg";
 import instagram from "./images/instagram.svg";
 import twitter from "./images/twitter.svg";
@@ -62,11 +62,6 @@ const Wrapper = styled.div`
     display: none;
   }
 
-  .fly {
-    position: absolute;
-    top: 20rem;
-  }
-
   input {
     position: relative;
   }
@@ -86,6 +81,27 @@ const Wrapper = styled.div`
     .you-tube {
       margin-right: 2.4rem;
     }
+  }
+`;
+
+const FormGroup = styled.form`
+  padding: 1rem 1.2rem;
+  width: 25.5rem;
+  border-radius: 0.8rem;
+  background-color: #ffffff20;
+
+  input {
+    background: transparent;
+    border: none;
+    color: #d9dbe1;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .icon {
+    height: 1.6rem;
   }
 `;
 
@@ -146,11 +162,15 @@ const footer = () => {
             Stay in the know by joining our mailing list.
           </h1>
           <Spacer y={2.4} />
-          <input
-            className="mail"
-            type="text"
-            placeholder="Your email address"
-          />
+          <FormGroup
+            className="flexRow alignCenter justifySpaceBetween"
+            onSubmit={(e) => e.preventDefault()}
+          >
+            <input type="email" placeholder="Your email address" required />
+            <button type="submit">
+              <img src={send} alt="logo" className="icon" />
+            </button>
+          </FormGroup>
           <Spacer y={14} />
         </div>
       </div>
@@ -161,12 +181,15 @@ const footer = () => {
             Stay in the know by joining our mailing list.
           </h1>
           <Spacer y={2.4} />
-          <img src={fly} alt="logo" className="fly" />
-          <input
-            className="mail"
-            type="text"
-            placeholder="Your email address"
-          />
+          <FormGroup
+            className="flexRow alignCenter justifySpaceBetween"
+            onSubmit={(e) => e.preventDefault()}
+          >
+            <input type="email" placeholder="Your email address" required />
+            <button type="submit">
+              <img src={send} alt="logo" className="icon" />
+            </button>
+          </FormGroup>
           <Spacer y={4.8} />
           <div>
             <img src={logo} alt="logo" className="logo" />

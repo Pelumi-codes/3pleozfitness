@@ -39,6 +39,11 @@ const Wrapper = styled.div`
       line-height: 28px;
       letter-spacing: 0em;
     }
+
+    h2 {
+      font-size: 18px;
+      line-height: 28px;
+    }
   }
 `;
 
