@@ -51,7 +51,13 @@ const OneOnOneDetails = () => {
           needs.
         </p>
         <Spacer y={4.8} />
-        <Button as="a" href="/" normal text="Schedule Session" />
+        <Button
+          as="a"
+          href="https://3pleozfitness.com/collections/soccer-coaching-plans"
+          target="_blank"
+          normal
+          text="Schedule Session"
+        />
       </div>
     </PlanDetails>
   );

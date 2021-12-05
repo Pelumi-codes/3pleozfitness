@@ -123,7 +123,7 @@ const Customers = () => {
   };
 
   const prev = () => {
-    if (testimonyIndex == 0) {
+    if (testimonyIndex === 0) {
       return;
     } else {
       setTestimonyIndex((prev) => prev - 1);

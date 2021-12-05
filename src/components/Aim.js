@@ -1,12 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import Spacer from "./Spacer";
 import baller_one from "./images/baller_one.png";
 import baller_two from "./images/baller_two.png";
 import baller_three from "./images/baller_three.png";
 import baller_four from "./images/baller_four.png";
 import swerveBall from "./images/ball_two.png";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 const Wrapper = styled.div`
   background-color: transparent;
@@ -92,6 +91,7 @@ const Aim = () => {
     const interval = setInterval(switchBaller, 2000);
 
     return () => clearInterval(interval);
+    // eslint-disable-next-line
   }, [baller]);
 
   return (

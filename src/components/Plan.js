@@ -4,17 +4,22 @@ import Spacer from "./Spacer";
 import circleSnap_one from "./images/circleSnap_one.png";
 import circleSnap_two from "./images/circleSnap_two.png";
 import circleSnap_three from "./images/circleSnap_three.png";
+import ball_one from "./images/ball_one.png";
+import ball_two from "./images/ball_two.png";
 import Button from "./Button";
 import { Link } from "react-router-dom";
 
 const Wrapper = styled.div`
   background-color: #181813;
   overflow: hidden;
+  position: relative;
 
   .contentWrapper {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 6rem;
+    position: relative;
+    z-index: 2;
   }
 
   @media screen and (max-width: 768px) {
@@ -63,9 +68,40 @@ const CoachingPlan = styled.div`
   }
 `;
 
+const SwerveBall = styled.img`
+  position: absolute;
+  z-index: 1;
+  opacity: 0.05;
+
+  &.topRight {
+    top: 0;
+    right: 0;
+  }
+
+  &.center {
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+  }
+
+  &.bottomRight {
+    bottom: 0;
+    right: -40rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`;
+
 const Plan = () => {
   return (
     <Wrapper className="aimWrapper container" id="coachingPlans">
+      {/* Swerve balls */}
+      <SwerveBall src={ball_one} alt="swerve ball" className="topRight" />
+      <SwerveBall src={ball_two} alt="swerve ball" className="center" />
+      <SwerveBall src={ball_two} alt="swerve ball" className="bottomRight" />
+
       <Spacer y={14.4} yMobile={7.2} />
       <h1 className="colorWhite displayMediumBold">
         Soccer <br /> Coaching Plans

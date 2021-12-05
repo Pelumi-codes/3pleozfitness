@@ -145,13 +145,13 @@ const footer = () => {
             <a href="/#manifesto">
               <li className="list">Manifesto</li>
             </a>
-            <a href="/#coaching-plans">
+            <a href="/#coachingPlans">
               <li className="list">Coaching Plans</li>
             </a>
             <a href="/#testimonials">
               <li className="list">Testimonials</li>
             </a>
-            <a href="/#contacUs">
+            <a href="/#contactUs">
               <li className="list">Contact Us</li>
             </a>
           </ul>
@@ -200,16 +200,16 @@ const footer = () => {
               <Link to="/">
                 <li className="active">Home</li>
               </Link>
-              <a href="/#aim">
+              <a href="/#manifesto">
                 <li className="list">Manifesto</li>
               </a>
-              <a href="/#plan">
+              <a href="/#coachingPlans">
                 <li className="list">Coaching Plans</li>
               </a>
-              <a href="/#customers">
+              <a href="/#testimonials">
                 <li className="list">Testimonials</li>
               </a>
-              <a href="/#address">
+              <a href="/#contactUs">
                 <li className="list">Contact Us</li>
               </a>
             </ul>
