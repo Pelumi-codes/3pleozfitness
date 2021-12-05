@@ -97,7 +97,7 @@ const Menu = styled.ul`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    z-index: 1;
+    z-index: 10;
     background-color: #151e11;
     opacity: 0;
     pointer-events: none;
