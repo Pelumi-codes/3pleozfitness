@@ -81,7 +81,7 @@ const Plan = () => {
             />
           </div>
           <div className="flexColumn colorWhite">
-            <h3 className="textBold">One-on-one coaching</h3>
+            <h3 className="displayLargeBold">One-on-one coaching</h3>
             <Spacer y={1} />
             <p className="textMedium">
               Experience detailed coaching that leverages individualized
@@ -95,7 +95,7 @@ const Plan = () => {
         </CoachingPlan>
         <CoachingPlan className="right">
           <div className="flexColumn colorWhite">
-            <h3 className="textBold">Midweek skills class</h3>
+            <h3 className="displayLargeBold">Midweek skills class</h3>
             <Spacer y={1} />
             <p className="textMedium">
               Reinforce your skills with group-based coaching which offers an
@@ -123,7 +123,7 @@ const Plan = () => {
             />
           </div>
           <div className="flexColumn colorWhite">
-            <h3 className="textBold">Camps and clinics</h3>
+            <h3 className="displayLargeBold">Camps and clinics</h3>
             <Spacer y={1} />
             <p className="textMedium">
               Explore our customized, intensive coaching sessions specially

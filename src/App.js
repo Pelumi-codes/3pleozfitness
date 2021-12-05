@@ -1,16 +1,10 @@
 import React from "react";
 import Landing from "./pages/Landing";
-import About_Us from "./pages/About_Us";
-import Camps_And_Picnic from "./pages/Camps_And_Picnic";
-import One_on_One from "./pages/One_on_One";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect,
-} from "react-router-dom";
-import Plan from "./components/Plan";
+import CampsAndClinics from "./pages/CampsAndClinics";
+import OneOnOne from "./pages/OneOnOne";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
+import Midweek from "./pages/Midweek";
 
 function App() {
   return (
@@ -19,10 +13,9 @@ function App() {
         <ScrollToTop />
         <Switch>
           <Route exact path="/" component={Landing} />
-          <Route path="/one-on-one" component={One_on_One} />
-          <Route path="/About-Us" component={About_Us} />
-          <Route path="/camps-and-clinic" component={Camps_And_Picnic} />
-          <Route path="/plan" component={Plan} />
+          <Route path="/one-on-one" component={OneOnOne} />
+          <Route path="/midweek-skills" component={Midweek} />
+          <Route path="/camps-and-clinics" component={CampsAndClinics} />
         </Switch>
       </div>
     </Router>

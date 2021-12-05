@@ -2,12 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import Spacer from "./Spacer";
 import logo from "./images/logo.svg";
-import Button from "./Button";
 import { Link } from "react-router-dom";
 import hamburger from "./images/menu.png";
 import closeIcon from "./images/close.svg";
-import headerImg from "./images/header.jpg";
-import { scrollTo } from "../utils";
 import { useState } from "react";
 
 const Wrapper = styled.div`
@@ -24,15 +21,10 @@ const Wrapper = styled.div`
     min-height: 100%;
     min-width: 100%;
     z-index: -1;
-    filter: brightness(0.5);
   }
 
   .navWrapper {
     height: 12rem;
-  }
-
-  .caption {
-    text-align: right;
   }
 
   .miniCaption {
@@ -44,7 +36,8 @@ const Wrapper = styled.div`
   }
 
   @media screen and (max-width: 768px) {
-    height: auto;
+    height: unset;
+    // min-height: 100vh;
 
     .caption {
       text-align: center;
@@ -145,11 +138,32 @@ const Hamburger = styled.button`
   }
 `;
 
-const Header = () => {
+const ImgWrapper = styled.div`
+  height: 560px;
+  width: 80%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 1.2rem;
+
+  img {
+    height: 100%;
+    width: auto;
+  }
+
+  @media screen and (max-width: 768px) {
+    height: 240px;
+    width: 300px;
+  }
+`;
+
+const PlanCaption = ({ coverImg, mainImg, title }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <Wrapper className="headerWrapper container section" id="header">
-      <img src={headerImg} alt="Cover" className="coverImg" />
+      <img src={coverImg} alt="Cover" className="coverImg" />
 
       <div className="flexRow justifySpaceBetween alignCenter navWrapper">
         <div>
@@ -200,27 +214,15 @@ const Header = () => {
           </a>
         </Menu>
       </div>
-      <Spacer y={10.8} yMobile={13.2} />
-      <div>
-        <h1 className="displayLargeBold colorWhite caption">
-          3PLEOZ SKILLZ ACADEMY
-        </h1>
-        <Spacer y={1} />
-        <h3 className="displayMediumText colorWhite miniCaption">
-          training for Boys and Girls of all ages and skill levels.
-        </h3>
-      </div>
       <Spacer y={4.8} />
-      <Button
-        text="See all coaching plans"
-        className="btnHeader"
-        onClick={() => scrollTo("coachingPlans")}
-        normal
-        maxWidth
-      />
-      <Spacer yMobile={42.6} />
+      <h2 className="displayLarge colorWhite caption textCenter">{title}</h2>
+      <Spacer y={4.8} />
+      <ImgWrapper>
+        <img src={mainImg} alt="main caption" />
+      </ImgWrapper>
+      <Spacer y={9.6} />
     </Wrapper>
   );
 };
 
-export default Header;
+export default PlanCaption;

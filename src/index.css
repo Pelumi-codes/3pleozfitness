@@ -236,8 +236,9 @@ img {
 }
 
 .textBold {
-  font-weight: 700;
+  font-weight: bold;
 }
+
 .paddingTop {
   margin-top: 9.6rem;
 }
@@ -251,10 +252,10 @@ img {
 }
 
 .displayLargeBold {
-  font-size: 72px;
+  font-size: 48px;
   font-style: normal;
   font-weight: 700;
-  line-height: 90px;
+  line-height: 60px;
   letter-spacing: 0em;
 }
 
@@ -279,14 +280,6 @@ img {
   font-style: normal;
   font-weight: 600;
   line-height: 72px;
-  letter-spacing: 0em;
-}
-
-.textBold {
-  font-size: 48px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 60px;
   letter-spacing: 0em;
 }
 

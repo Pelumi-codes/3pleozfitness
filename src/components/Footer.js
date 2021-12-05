@@ -122,16 +122,16 @@ const footer = () => {
             <Spacer y={4} />
           </div>
           <div className="handles flexRow">
-            <a href="#">
+            <a href="/">
               <img src={instagram} alt="instagram" className="instagram" />
             </a>
-            <a href="#">
+            <a href="/">
               <img src={facebook} alt="facebook" className="facebook" />
             </a>
-            <a href="#">
+            <a href="/">
               <img src={twitter} alt="twitter" className="twitter" />
             </a>
-            <a href="#">
+            <a href="/">
               <img src={youTube} alt="you-tube" className="you-tube" />
             </a>
           </div>
@@ -142,16 +142,16 @@ const footer = () => {
             <Link to="/">
               <li className="active">Home</li>
             </Link>
-            <a href="#aim">
+            <a href="/#manifesto">
               <li className="list">Manifesto</li>
             </a>
-            <a href="#plan">
+            <a href="/#coaching-plans">
               <li className="list">Coaching Plans</li>
             </a>
-            <a href="#customers">
+            <a href="/#testimonials">
               <li className="list">Testimonials</li>
             </a>
-            <a href="#address">
+            <a href="/#contacUs">
               <li className="list">Contact Us</li>
             </a>
           </ul>
@@ -200,16 +200,16 @@ const footer = () => {
               <Link to="/">
                 <li className="active">Home</li>
               </Link>
-              <a href="#aim">
+              <a href="/#aim">
                 <li className="list">Manifesto</li>
               </a>
-              <a href="#plan">
+              <a href="/#plan">
                 <li className="list">Coaching Plans</li>
               </a>
-              <a href="#customers">
+              <a href="/#customers">
                 <li className="list">Testimonials</li>
               </a>
-              <a href="#address">
+              <a href="/#address">
                 <li className="list">Contact Us</li>
               </a>
             </ul>
@@ -222,10 +222,18 @@ const footer = () => {
             <Spacer y={2} />
           </div>
           <div className="handlesSmall flexRow">
-            <img src={instagram} alt="instagram" className="instagram" />
-            <img src={facebook} alt="facebook" className="facebook" />
-            <img src={twitter} alt="twitter" className="twitter" />
-            <img src={youTube} alt="you-tube" className="you-tube" />
+            <a href="/">
+              <img src={instagram} alt="instagram" className="instagram" />
+            </a>
+            <a href="/">
+              <img src={facebook} alt="facebook" className="facebook" />
+            </a>
+            <a href="/">
+              <img src={twitter} alt="twitter" className="twitter" />
+            </a>
+            <a href="/">
+              <img src={youTube} alt="you-tube" className="you-tube" />
+            </a>
           </div>
           <Spacer yMobile={4.8} />
         </div>
