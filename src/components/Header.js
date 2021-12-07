@@ -11,6 +11,7 @@ import { scrollTo } from "../utils";
 import { useState } from "react";
 import facebook_black from "./images/facebook_black.svg";
 import instagram_black from "./images/instagram_black.svg";
+import bg_video from "./assets/bg_video.mp4";
 
 const Wrapper = styled.div`
   position: relative;
@@ -25,19 +26,12 @@ const Wrapper = styled.div`
     transform: translateX(-50%);
   }
 
-  .coverImg {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 0;
-    min-height: 100%;
-    min-width: 100%;
-    z-index: -1;
-    filter: brightness(0.5);
-  }
-
   .navWrapper {
     position: relative;
+  }
+
+  .captionWrapper {
+    padding: 0 9.6rem;
   }
 
   .caption {
@@ -55,6 +49,10 @@ const Wrapper = styled.div`
 
   @media screen and (max-width: 768px) {
     height: auto;
+
+    .captionWrapper {
+      padding: 0 2.4rem;
+    }
 
     .caption {
       text-align: center;
@@ -159,11 +157,23 @@ export const Hamburger = styled.button`
   }
 `;
 
+const Video = styled.video`
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  min-height: 100%;
+  min-width: 100%;
+  z-index: -1;
+  filter: brightness(0.5);
+`;
+
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <Wrapper className="headerWrapper container section" id="header">
-      <img src={headerImg} alt="Cover" className="coverImg" />
+      {/* <img src={headerImg} alt="Cover" className="coverImg" /> */}
+      <Video src={bg_video} poster={headerImg} autoPlay loop muted />
       <Navbar className={menuOpen ? "stickyTop" : ""}>
         <div className="flexRow alignCenter">
           <a
@@ -227,15 +237,15 @@ const Header = () => {
         <h3 className="displayMediumText colorWhite miniCaption">
           training for Boys and Girls of all ages and skill levels.
         </h3>
+        <Spacer y={4.8} />
+        <Button
+          text="See all coaching plans"
+          className="btnHeader"
+          onClick={() => scrollTo("coachingPlans")}
+          normal
+          maxWidth
+        />
       </div>
-      <Spacer y={4.8} />
-      <Button
-        text="See all coaching plans"
-        className="btnHeader"
-        onClick={() => scrollTo("coachingPlans")}
-        normal
-        maxWidth
-      />
       <Spacer yMobile={42.6} />
     </Wrapper>
   );
