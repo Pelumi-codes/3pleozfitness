@@ -1,19 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 import Spacer from "./Spacer";
-import logo from "./images/logo.svg";
-import send from "./images/send.png";
+import logo from "./images/logo_footer.svg";
+// import send from "./images/send.png";
 import facebook from "./images/facebook.svg";
 import instagram from "./images/instagram.svg";
-import twitter from "./images/twitter.svg";
-import youTube from "./images/youTube.svg";
+// import twitter from "./images/twitter.svg";
+// import youTube from "./images/youTube.svg";
 import { Link } from "react-router-dom";
 
 const Wrapper = styled.div`
   background-color: #151e11;
 
   .brand {
-    font-family: var(--font_italic);
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -36,7 +35,6 @@ const Wrapper = styled.div`
   }
 
   .mailing {
-    font-family: var(--font_italic);
     font-size: 20px;
     font-style: normal;
     font-weight: 600;
@@ -84,26 +82,26 @@ const Wrapper = styled.div`
   }
 `;
 
-const FormGroup = styled.form`
-  padding: 1rem 1.2rem;
-  width: 25.5rem;
-  border-radius: 0.8rem;
-  background-color: #ffffff20;
+// const FormGroup = styled.form`
+//   padding: 1rem 1.2rem;
+//   width: 25.5rem;
+//   border-radius: 0.8rem;
+//   background-color: #ffffff20;
 
-  input {
-    background: transparent;
-    border: none;
-    color: #d9dbe1;
+//   input {
+//     background: transparent;
+//     border: none;
+//     color: #d9dbe1;
 
-    &:focus {
-      outline: none;
-    }
-  }
+//     &:focus {
+//       outline: none;
+//     }
+//   }
 
-  .icon {
-    height: 1.6rem;
-  }
-`;
+//   .icon {
+//     height: 1.6rem;
+//   }
+// `;
 
 const footer = () => {
   return (
@@ -122,42 +120,48 @@ const footer = () => {
             <Spacer y={4} />
           </div>
           <div className="handles flexRow">
-            <a href="/">
-              <img src={instagram} alt="instagram" className="instagram" />
-            </a>
-            <a href="/">
+            <a
+              href="https://www.facebook.com/3pleoz"
+              target="_blank"
+              rel="noreferer noopener noreferrer"
+            >
               <img src={facebook} alt="facebook" className="facebook" />
             </a>
-            <a href="/">
+            <a
+              href="https://www.instagram.com/3pleozfitness/"
+              target="_blank"
+              rel="noreferer noopener noreferrer"
+            >
+              <img src={instagram} alt="instagram" className="instagram" />
+            </a>
+
+            {/* <a href="/" target="_blank" rel="noreferer noopener">
               <img src={twitter} alt="twitter" className="twitter" />
             </a>
-            <a href="/">
+            <a href="/" target="_blank" rel="noreferer noopener">
               <img src={youTube} alt="you-tube" className="you-tube" />
-            </a>
+            </a> */}
           </div>
           <Spacer y={8} />
         </div>
         <div className="border">
           <ul className="lists">
             <Link to="/">
-              <li className="active">Home</li>
+              <li className="list">HOME</li>
             </Link>
-            <a href="/#manifesto">
-              <li className="list">Manifesto</li>
+            <a href="https://3pleozfitness.com/collections/all">
+              <li className="list">SHOP</li>
             </a>
-            <a href="/#coachingPlans">
-              <li className="list">Coaching Plans</li>
+            <a href="https://3pleozfitness.com/collections/soccer-coaching-plans">
+              <li className="list">SOCCER COACHING</li>
             </a>
-            <a href="/#testimonials">
-              <li className="list">Testimonials</li>
-            </a>
-            <a href="/#contactUs">
-              <li className="list">Contact Us</li>
+            <a href="https://3pleozfitness.com/pages/contact">
+              <li className="list">CONTACT US</li>
             </a>
           </ul>
           <Spacer y={9.6} />
         </div>
-        <div>
+        {/* <div>
           <h1 className="mailing">
             Stay in the know by joining our mailing list.
           </h1>
@@ -172,12 +176,12 @@ const footer = () => {
             </button>
           </FormGroup>
           <Spacer y={14} />
-        </div>
+        </div> */}
       </div>
 
       <div className="footergridSmall colorWhite">
         <div>
-          <h1 className="mailing">
+          {/* <h1 className="mailing">
             Stay in the know by joining our mailing list.
           </h1>
           <Spacer y={2.4} />
@@ -189,7 +193,7 @@ const footer = () => {
             <button type="submit">
               <img src={send} alt="logo" className="icon" />
             </button>
-          </FormGroup>
+          </FormGroup> */}
           <Spacer y={4.8} />
           <div>
             <img src={logo} alt="logo" className="logo" />
@@ -198,19 +202,16 @@ const footer = () => {
           <div className="border">
             <ul className="lists">
               <Link to="/">
-                <li className="active">Home</li>
+                <li className="list">HOME</li>
               </Link>
-              <a href="/#manifesto">
-                <li className="list">Manifesto</li>
+              <a href="https://3pleozfitness.com/collections/all">
+                <li className="list">SHOP</li>
               </a>
-              <a href="/#coachingPlans">
-                <li className="list">Coaching Plans</li>
+              <a href="https://3pleozfitness.com/collections/soccer-coaching-plans">
+                <li className="list">SOCCER COACHING</li>
               </a>
-              <a href="/#testimonials">
-                <li className="list">Testimonials</li>
-              </a>
-              <a href="/#contactUs">
-                <li className="list">Contact Us</li>
+              <a href="https://3pleozfitness.com/pages/contact">
+                <li className="list">CONTACT US</li>
               </a>
             </ul>
             <Spacer y={4.8} />
@@ -222,18 +223,26 @@ const footer = () => {
             <Spacer y={2} />
           </div>
           <div className="handlesSmall flexRow">
-            <a href="/">
-              <img src={instagram} alt="instagram" className="instagram" />
-            </a>
-            <a href="/">
+            <a
+              href="https://www.facebook.com/3pleoz"
+              target="_blank"
+              rel="noreferer noopener noreferrer"
+            >
               <img src={facebook} alt="facebook" className="facebook" />
             </a>
-            <a href="/">
+            <a
+              href="https://www.instagram.com/3pleozfitness/"
+              target="_blank"
+              rel="noreferer noopener noreferrer"
+            >
+              <img src={instagram} alt="instagram" className="instagram" />
+            </a>
+            {/* <a href="/" target="_blank" rel="noreferer noopener">
               <img src={twitter} alt="twitter" className="twitter" />
             </a>
-            <a href="/">
+            <a href="/" target="_blank" rel="noreferer noopener">
               <img src={youTube} alt="you-tube" className="you-tube" />
-            </a>
+            </a> */}
           </div>
           <Spacer yMobile={4.8} />
         </div>

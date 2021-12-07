@@ -6,12 +6,22 @@ import { Link } from "react-router-dom";
 import hamburger from "./images/menu.png";
 import closeIcon from "./images/close.svg";
 import { useState } from "react";
+import { Hamburger, Menu, Navbar } from "./Header";
+import facebook_black from "./images/facebook_black.svg";
+import instagram_black from "./images/instagram_black.svg";
 
 const Wrapper = styled.div`
   position: relative;
   background: transparent;
   width: 100vw;
   overflow: hidden;
+  padding: unset;
+
+  .logoWrapper {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 
   .coverImg {
     position: absolute;
@@ -21,10 +31,6 @@ const Wrapper = styled.div`
     min-height: 100%;
     min-width: 100%;
     z-index: -1;
-  }
-
-  .navWrapper {
-    height: 12rem;
   }
 
   .miniCaption {
@@ -56,88 +62,6 @@ const Wrapper = styled.div`
   }
 `;
 
-const Menu = styled.ul`
-  padding: 2.4rem 4.8rem;
-  display: grid;
-  grid-template-columns: repeat(5, auto);
-  grid-gap: 4.8rem;
-  white-space: nowrap;
-  background-color: white;
-  border-radius: 40px;
-
-  .listItem {
-    color: #8d9091;
-    cursor: pointer;
-
-    &.active {
-      color: #155509;
-    }
-  }
-
-  .menuHeader {
-    display: none;
-  }
-
-  @media screen and (max-width: 768px) {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    overflow: auto;
-    border-radius: unset;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-    background-color: #151e11;
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.2s ease-out;
-
-    &.open {
-      opacity: 1;
-      pointer-events: all;
-    }
-
-    .listItem {
-      height: max-content;
-      color: #ffffff;
-      font-size: 18px;
-      line-height: 28px;
-    }
-
-    .menuHeader {
-      display: flex;
-      height: 12rem;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding: 0 2.4rem;
-    }
-  }
-`;
-
-const Hamburger = styled.button`
-  height: 4.8rem;
-  width: 4.8rem;
-  background-color: #ffffff;
-  border-radius: 50%;
-  align-items: center;
-  justify-content: center;
-  display: none;
-
-  &.open {
-    background-color: #bfffb320;
-  }
-
-  @media screen and (max-width: 768px) {
-    display: flex;
-  }
-`;
-
 const ImgWrapper = styled.div`
   height: 560px;
   width: 80%;
@@ -146,11 +70,11 @@ const ImgWrapper = styled.div`
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border-radius: 1.2rem;
+  border-radius: 4rem;
 
   img {
-    height: 100%;
-    width: auto;
+    min-height: 100%;
+    min-width: 105%;
   }
 
   @media screen and (max-width: 768px) {
@@ -161,59 +85,64 @@ const ImgWrapper = styled.div`
 
 const PlanCaption = ({ coverImg, mainImg, title }) => {
   const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <Wrapper className="headerWrapper container section" id="header">
       <img src={coverImg} alt="Cover" className="coverImg" />
 
-      <div className="flexRow justifySpaceBetween alignCenter navWrapper">
-        <div>
-          <Link to="/">
-            <img src={logo} alt="logo" className="logo" />
-          </Link>
+      <Navbar className={menuOpen ? "stickyTop" : ""}>
+        <div className="flexRow alignCenter">
+          <a
+            href="https://www.facebook.com/3pleoz"
+            target="_blank"
+            rel="noreferer noopener noreferrer"
+          >
+            <img src={facebook_black} alt="facebook" className="facebook" />
+          </a>
+          <Spacer x={1.2} />
+          <a
+            href="https://www.instagram.com/3pleozfitness/"
+            target="_blank"
+            rel="noreferer noopener noreferrer"
+          >
+            <img src={instagram_black} alt="instagram" className="instagram" />
+          </a>
         </div>
+        <Spacer y={3.6} />
+        <div className="flexRow justifySpaceBetween alignCenter navWrapper">
+          <Hamburger
+            className={`${menuOpen ? "open" : "closed"}`}
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            {!menuOpen && (
+              <img src={hamburger} alt="menu" className="menuIcon" />
+            )}
+            {menuOpen && (
+              <img src={closeIcon} alt="menu" className="closeIcon" />
+            )}
+          </Hamburger>
 
-        <Hamburger onClick={() => setMenuOpen(!menuOpen)}>
-          {!menuOpen && <img src={hamburger} alt="menu" className="menuIcon" />}
-          {menuOpen && <img src={closeIcon} alt="menu" className="closeIcon" />}
-        </Hamburger>
-
-        <Menu className={`${menuOpen ? "open" : "closed"}`}>
-          <div className="menuHeader flexRow justifySpaceBetween alignCenter">
-            <div>
-              <Link to="/">
-                <img src={logo} alt="logo" className="logo" />
-              </Link>
-            </div>
-
-            <Hamburger
-              className={`${menuOpen ? "open" : "closed"}`}
-              onClick={() => setMenuOpen(!menuOpen)}
-            >
-              {!menuOpen && (
-                <img src={hamburger} alt="menu" className="menuIcon" />
-              )}
-              {menuOpen && (
-                <img src={closeIcon} alt="menu" className="closeIcon" />
-              )}
-            </Hamburger>
+          <Menu className={`${menuOpen ? "open" : "closed"}`}>
+            <Link to="/">
+              <li className="listItem">HOME</li>
+            </Link>
+            <a href="https://3pleozfitness.com/collections/all">
+              <li className="listItem">SHOP</li>
+            </a>
+            <a href="https://3pleozfitness.com/collections/soccer-coaching-plans">
+              <li className="listItem active">SOCCER COACHING</li>
+            </a>
+            <a href="https://3pleozfitness.com/pages/contact">
+              <li className="listItem">CONTACT US</li>
+            </a>
+          </Menu>
+          <div className="logoWrapper">
+            <Link to="/">
+              <img src={logo} alt="logo" className="logo" />
+            </Link>
           </div>
-          <a href="/">
-            <li className="listItem">Home</li>
-          </a>
-          <a href="/#manifesto" onClick={() => setMenuOpen(false)}>
-            <li className="listItem">Manifesto</li>
-          </a>
-          <a href="/#coachingPlans" onClick={() => setMenuOpen(false)}>
-            <li className="listItem">Coaching Plans</li>
-          </a>
-          <a href="/#testimonials" onClick={() => setMenuOpen(false)}>
-            <li className="listItem">Testimonials</li>
-          </a>
-          <a href="/#contactUs" onClick={() => setMenuOpen(false)}>
-            <li className="listItem">Contact Us</li>
-          </a>
-        </Menu>
-      </div>
+        </div>
+      </Navbar>
       <Spacer y={4.8} />
       <h2 className="displayLarge colorWhite caption textCenter">{title}</h2>
       <Spacer y={4.8} />

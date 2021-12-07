@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import Spacer from "./Spacer";
-import circleSnap_one from "./images/circleSnap_one.png";
-import circleSnap_two from "./images/circleSnap_two.png";
-import circleSnap_three from "./images/circleSnap_three.png";
+import midweek_skills_main from "./images/midweek_skills_main.jpg";
+import one_on_one_main from "./images/one_on_one_main.jpg";
+import camps_and_clinics_main from "./images/camps_and_clinics_main.jpg";
 import ball_one from "./images/ball_one.png";
 import ball_two from "./images/ball_two.png";
 import Button from "./Button";
@@ -45,11 +45,17 @@ const CoachingPlan = styled.div`
 
   .imgWrapper {
     width: 100%;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 10px solid #ffffff;
   }
 
   .circleImg {
-    width: 100%;
-    aspect-ratio: 1/1;
+    height: 100%;
   }
 
   @media screen and (max-width: 768px) {
@@ -62,7 +68,7 @@ const CoachingPlan = styled.div`
       flex-direction: column-reverse;
     }
 
-    .circleImg {
+    .imgWrapper {
       width: 20rem;
     }
   }
@@ -111,7 +117,7 @@ const Plan = () => {
         <CoachingPlan>
           <div className="imgWrapper">
             <img
-              src={circleSnap_one}
+              src={one_on_one_main}
               alt="players on the pitch"
               className="circleImg"
             />
@@ -144,7 +150,7 @@ const Plan = () => {
           </div>
           <div className="imgWrapper">
             <img
-              src={circleSnap_two}
+              src={midweek_skills_main}
               alt="players on the pitch"
               className="circleImg"
             />
@@ -153,7 +159,7 @@ const Plan = () => {
         <CoachingPlan>
           <div className="imgWrapper">
             <img
-              src={circleSnap_three}
+              src={camps_and_clinics_main}
               alt="players on the pitch"
               className="circleImg"
             />
