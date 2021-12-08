@@ -105,7 +105,7 @@ const Aim = () => {
           <br />
           <h3 className="textMedium">
             We deploy every secret we know to help our trainees grasp the skills
-            and techniques they need to get adept at the game of football.
+            and techniques they need to get adept at the game of soccer.
           </h3>
           {/* <Spacer y={26.5} yMobile={9.9} /> */}
         </div>

@@ -11,7 +11,7 @@ const One_on_One = () => {
       <PlanCaption
         mainImg={one_on_one_main}
         coverImg={one_on_one_cover}
-        title="One on one coaching"
+        title="One-on-one coaching"
       />
       <OneOnOneDetails />
       <Footer />
