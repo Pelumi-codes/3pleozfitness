@@ -1,4 +1,4 @@
-<a href = "https://3pleofitness.netlify.app/">Link to Code</a>
+<a href = "https://3pleofitness.netlify.app/">Link to Result</a>
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
